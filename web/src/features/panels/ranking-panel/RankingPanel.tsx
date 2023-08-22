@@ -18,6 +18,11 @@ export default function RankingPanel(): ReactElement {
   const [electricityMode] = useAtom(productionConsumptionAtom);
   const inputHandler = (inputEvent: any) => {
     const lowerCase = inputEvent.target.value.toLowerCase();
+    /*
+      hit nominatim API to get more data on searched location from OpenStreetMap
+      then take the most general location that maps to a search term in the electricitymap
+      i.e. San Francisco, CA should map to Northern California, USA
+    */
     setSearchTerm(lowerCase);
   };
 
